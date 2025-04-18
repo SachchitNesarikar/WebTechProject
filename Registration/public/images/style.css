@@ -1,0 +1,69 @@
+/* Dark Mode Styling */
+:root {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --input-bg: #2a2a2a;
+    --btn-bg: #007bff;
+    --btn-hover-bg: #0056b3;
+    --border-color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: var(--container-bg);
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    border-radius: 10px;
+    width: 350px;
+}
+
+h2 {
+    color: var(--text-color);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-color);
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: var(--btn-bg);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: var(--btn-hover-bg);
+}
+
+a {
+    color: var(--btn-bg);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

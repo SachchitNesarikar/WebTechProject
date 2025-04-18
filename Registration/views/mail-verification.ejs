@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px 20px 10px 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease-in-out;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        p { font-size: 1.2rem; margin-bottom: 20px; }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: black;
+            background: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+        }
+        a:hover { background: red; color: white; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <% if (message) { %>
+            <h1>Message</h1>
+            <p><%= message %></p>
+        <% } else { %>
+            <h1>Welcome!</h1>
+            <p>This is your styled EJS page.</p>
+        <% } %>
+        <a href="/">Go Home</a>
+    </div>
+</body>
+</html>
