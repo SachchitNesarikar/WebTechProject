@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skill2Skill Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      width: 60%;
+      justify-content: center;
+    }
+
+    .profile-image img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      border: 2px solid #444;
+      object-fit: cover;
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .field .value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .search-box {
+      margin: 25px 0 10px;
+      width: 50%;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background-color: #2a2a2a;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .autocomplete-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #2a2a2a;
+      border: 1px solid #444;
+      border-top: none;
+      max-height: 150px;
+      overflow-y: auto;
+      z-index: 999;
+    }
+
+    .autocomplete-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .autocomplete-item:hover {
+      background-color: #3a3a3a;
+    }
+
+    .selected-skill {
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .selected-skill button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .selected-skill button:hover {
+      background: #0056b3;
+    }
+
+    .skills-section {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      width: 90%;
+      padding: 10px 0 40px;
+      flex-wrap: wrap;
+    }
+
+    .skill-card {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      width: 45%;
+      min-height: 300px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill-box {
+      background: #3a3a3a;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 14px;
+      border: 1px solid #555;
+      transition: 0.3s;
+    }
+
+    .skill-box:hover {
+      background: #4a4a4a;
+    }
+
+    @media screen and (max-width: 900px) {
+      .skills-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill-card {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Profile Section -->
+  <div class="profile-header">
+    <div class="profile-image">
+      <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Profile" />
+    </div>
+    <div class="profile-details">
+      <div class="field">
+        <label>Username</label>
+        <div class="value">@username</div>
+      </div>
+      <div class="field">
+        <label>Display Name</label>
+        <div class="value">John Doe</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search skills..." autocomplete="off" />
+    <div class="autocomplete-list" id="autocompleteList"></div>
+  </div>
+
+  <div class="selected-skill" id="selectedSkillBtns" style="display: none;">
+    <button>Connect</button>
+    <button>Message</button>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="skills-section">
+    <div class="skill-card">
+      <h3>Skills Offered</h3>
+      <div class="skills-grid">
+        <div class="skill-box">💻 Web Dev</div>
+        <div class="skill-box">🎨 Design</div>
+        <div class="skill-box">🧠 UX</div>
+        <div class="skill-box">🐍 Python</div>
+        <div class="skill-box">🎬 Editing</div>
+        <div class="skill-box">✍️ Writing</div>
+        <div class="skill-box">⚛️ React</div>
+        <div class="skill-box">📸 Photo</div>
+        <div class="skill-box">🗣 Speaking</div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Skills Looking For</h3>
+      <div class="skills-grid">
+        <div class="skill-box">📈 Marketing</div>
+        <div class="skill-box">🔍 SEO</div>
+        <div class="skill-box">📊 Analysis</div>
+        <div class="skill-box">💼 Strategy</div>
+        <div class="skill-box">🖌 Illustration</div>
+        <div class="skill-box">⛓ Blockchain</div>
+        <div class="skill-box">🧑‍💼 Management</div>
+        <div class="skill-box">🎤 Comm.</div>
+        <div class="skill-box">🎞 Animation</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const skills = [
+      "Web Development", "Graphic Design", "UI/UX", "Python Programming", "Video Editing",
+      "Content Writing", "React.js", "Photography", "Public Speaking", "Podcast Editing",
+      "App Prototyping", "Figma Design", "Digital Marketing", "SEO", "Data Analysis",
+      "Business Strategy", "Illustration", "Blockchain Basics", "Project Management",
+      "Communication Skills", "UI Animation", "Technical Writing", "A/B Testing", "Excel Modeling"
+    ];
+
+    const input = document.getElementById('searchInput');
+    const list = document.getElementById('autocompleteList');
+    const buttons = document.getElementById('selectedSkillBtns');
+
+    input.addEventListener('input', function () {
+      const value = this.value.toLowerCase();
+      list.innerHTML = '';
+      if (!value) {
+        list.style.display = 'none';
+        return;
+      }
+
+      const filtered = skills.filter(skill => skill.toLowerCase().includes(value));
+      if (filtered.length === 0) {
+        list.style.display = 'none';
+        return;
+      }
+
+      list.style.display = 'block';
+      filtered.forEach(skill => {
+        const item = document.createElement('div');
+        item.className = 'autocomplete-item';
+        item.textContent = skill;
+        item.onclick = () => {
+          input.value = skill;
+          list.innerHTML = '';
+          list.style.display = 'none';
+          buttons.style.display = 'flex';
+        };
+        list.appendChild(item);
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-box')) {
+        list.innerHTML = '';
+        list.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
