@@ -5,68 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skill2Skill - Exchange Skills, Grow Together</title>
   <style>
-        body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f2f2f2;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #171616;
+    }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  color: white;
-  padding: 10px 20px;
-}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+    }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-nav ul li {
-  position: relative;
-}
+    nav ul li {
+      position: relative;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-}
+    nav a {
+      color: rgb(251, 243, 243);
+      text-decoration: none;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: white;
-  top: 100%;
-  left: 0;
-  list-style: none;
-  padding: 10px;
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #333;
+      top: 100%;
+      left: 0;
+      list-style: none;
+      padding: 10px;
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-.dropdown-content li a {
-  color: #333;
-  display: block;
-  padding: 5px 10px;
-  text-decoration: none;
-}
+    .dropdown-content li a {
+      color: #fffdfd;
+      display: block;
+      padding: 5px 10px;
+      text-decoration: none;
+    }
 
     .hero {
       text-align: center;
       padding: 80px 20px;
       background: linear-gradient(135deg, #6c63ff, #a46bf5);
-      color: white;
+      color: rgb(17, 17, 17);
     }
 
     .hero h2 {
@@ -81,8 +81,8 @@ nav a {
     }
 
     .hero button {
-      background-color: white;
-      color: #6c63ff;
+      background-color: #6c63ff;
+      color: #1e1e20;
       border: none;
       padding: 15px 30px;
       font-size: 16px;
@@ -92,42 +92,46 @@ nav a {
 
     .container {
       width: 80%;
-      margin: 100px auto;
+      margin: 80px auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px 0;
+      gap: 40px;
+      flex-wrap: wrap;
+      color : rgb(247, 12, 12);
     }
 
     .image-box {
-  width: 150px;
-  height: 100px;
-  border: 2px solid #000;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  object-fit: cover;
-}
-  
+      width: 300px;
+      height: 200px;
+      border: 2px solid #000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.image-box img {
-  width: 150px;
-  height: auto; 
-}
-
+    .image-box img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+    }
 
     .text-box {
-      padding-left: 30px;
-      padding-right:60px;
+      max-width: 500px;
       text-align: center;
     }
 
     .text-box h3 {
       color: #6c63ff;
       font-size: 24px;
+      margin-bottom: 10px;
     }
 
+    .text-box p {
+      font-size: 16px;
+      color: #333;
+    }
 
     footer {
       background-color: #2f2f2f;
@@ -140,66 +144,82 @@ nav a {
       margin: 0;
       font-size: 14px;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .image-box {
+        margin-bottom: 20px;
+      }
+    }
+    
+    p {
+      color: white;
+    }
+
   </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Skill2Skill</div>
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Explore</a></li>
-            <li class="dropdown">
-              <a href="#">Registration</a>
-              <ul class="dropdown-content">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Signup</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Profile</a></li>
+  <header>
+    <div class="logo">Skill2Skill</div>
+    <nav>
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="#">Explore</a></li>
+        <li class="dropdown">
+          <a href="#">Registration</a>
+          <ul class="dropdown-content">
+            <li><a href="../../Registration/public/images/login.html">Login</a></li>
+            <li><a href="../../Registration/public/images/register.html">Signup</a></li>
           </ul>
-        </nav>
-      </header>
+        </li>
+        <li><a href="../Profile/profile_page.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="hero">
     <h2>Exchange Skills. Empower Each Other.</h2>
-    <p>Skill2Skill is a platform where people connect to teach what they know and learn what they want — no money involved, just skills exchanged.</p>
+    <p style="color: white;">Skill2Skill is a platform where people connect to teach what they know and learn what they want — no money involved, just skills exchanged.</p>
     <button>Get Started</button>
   </section>
 
   <section class="container">
-      <div class="img-box">
-        <p><img src="code.png"></img></p> 
-      </div>
+    <div class="image-box">
+      <img src="code.png" alt="Code" />
+    </div>
     <div class="text-box">
       <h3>Learn New Skills</h3>
-      <p>Pick up new abilities from real people with hands-on experience in areas like design, coding, music, and more.</p>
+      <p style="color: white;">Pick up new abilities from real people with hands-on experience in areas like design, coding, music, and more.</p>
     </div>
-</section>
+  </section>
 
-<section class="container">
-  <div class="text-box">
-    <h3>Teach & Share</h3>
-    <p>Offer your knowledge in exchange for learning something new.<br> Everyone has something to offer.</p>
-  </div>
-  <div class="img-box">
-    <p><img src="share.png"></img></p>
-  </div>
-</section>
+  <section class="container">
+    <div class="text-box">
+      <h3>Teach & Share</h3>
+      <p style="color: white;">Offer your knowledge in exchange for learning something new. Everyone has something to offer.</p>
+    </div>
+    <div class="image-box">
+      <img src="share.png" alt="Share" />
+    </div>
+  </section>
 
-<section class="container">
-  <div class="img-box">
-    <p><img src="community.png"></img></p> 
-  </div>
-<div class="text-box">
-  <h3>Build Community</h3>
-  <p>Meet like-minded learners and creators.<br>Grow your network and knowledge, one skill at a time</p>
-</div>
-</section>
+  <section class="container">
+    <div class="image-box">
+      <img src="community.png" alt="Community" />
+    </div>
+    <div class="text-box">
+      <h3>Build Community</h3>
+      <p style="color: white;">Meet like-minded learners and creators. Grow your network and knowledge, one skill at a time.</p>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Skill2Skill. All rights reserved.</p>
+    <p style="color: white;">&copy; 2025 Skill2Skill. All rights reserved.</p>
   </footer>
 
 </body>
