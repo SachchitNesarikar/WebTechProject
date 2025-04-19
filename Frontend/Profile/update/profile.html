@@ -1,0 +1,19 @@
+<div class="profile-header">
+    <div class="profile-image" onclick="document.getElementById('profile-img-upload').click()">
+        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Profile Image" width="150" height="150" />
+        <input type="file" id="profile-img-upload" style="display: none;" onchange="updateProfileImage(event)" />
+    </div>
+
+    <div class="profile-details">
+        <div class="name-row">
+            <div class="field">
+                <label>Username</label>
+                <input type="text" id="username" value="@username" />
+            </div>
+            <div class="field">
+                <label>Display Name</label>
+                <input type="text" id="displayname" value="XYZ" />
+            </div>
+        </div>
+    </div>
+</div>
