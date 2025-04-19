@@ -90,28 +90,44 @@ nav a {
       cursor: pointer;
     }
 
-    .features {
+    .container {
+      width: 80%;
+      margin: 100px auto;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      padding: 60px 20px;
-      gap: 40px;
-      background-color: #fff;
+      align-items: center;
+      padding: 20px 0;
     }
 
-    .feature {
-      flex: 1 1 250px;
-      max-width: 300px;
-      padding: 20px;
-      background-color: #f0f4ff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    .image-box {
+  width: 150px;
+  height: 100px;
+  border: 2px solid #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+  
+
+.image-box img {
+  width: 150px;
+  height: auto; 
+}
+
+
+    .text-box {
+      padding-left: 30px;
+      padding-right:60px;
       text-align: center;
     }
 
-    .feature h3 {
-      color: #3d5af1;
+    .text-box h3 {
+      color: #6c63ff;
+      font-size: 24px;
     }
+
 
     footer {
       background-color: #2f2f2f;
@@ -152,20 +168,35 @@ nav a {
     <button>Get Started</button>
   </section>
 
-  <section class="features">
-    <div class="feature">
+  <section class="container">
+      <div class="img-box">
+        <p><img src="code.png"></img></p> 
+      </div>
+    <div class="text-box">
       <h3>Learn New Skills</h3>
       <p>Pick up new abilities from real people with hands-on experience in areas like design, coding, music, and more.</p>
     </div>
-    <div class="feature">
-      <h3>Teach & Share</h3>
-      <p>Offer your knowledge in exchange for learning something new. Everyone has something to offer.</p>
-    </div>
-    <div class="feature">
-      <h3>Build Community</h3>
-      <p>Meet like-minded learners and creators. Grow your network and knowledge, one skill at a time.</p>
-    </div>
-  </section>
+</section>
+
+<section class="container">
+  <div class="text-box">
+    <h3>Teach & Share</h3>
+    <p>Offer your knowledge in exchange for learning something new.<br> Everyone has something to offer.</p>
+  </div>
+  <div class="img-box">
+    <p><img src="share.png"></img></p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="img-box">
+    <p><img src="community.png"></img></p> 
+  </div>
+<div class="text-box">
+  <h3>Build Community</h3>
+  <p>Meet like-minded learners and creators.<br>Grow your network and knowledge, one skill at a time</p>
+</div>
+</section>
 
   <footer>
     <p>&copy; 2025 Skill2Skill. All rights reserved.</p>
