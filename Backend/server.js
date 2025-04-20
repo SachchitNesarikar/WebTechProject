@@ -104,7 +104,7 @@ app.get("/all", (req, res) => {
     }
   });
 });
-
+//to get regestration
 app.get("/city", (req, res) => {
   const city = req.params.city;
   console.log(`Received request for city: ${city}`);
