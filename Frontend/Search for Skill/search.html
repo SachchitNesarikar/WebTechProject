@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Skill2Skill Profile</title>
+  <title>Explore | Skill2Skill</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     * {
@@ -19,6 +19,57 @@
       flex-direction: column;
       align-items: center;
       overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      width: 100vw;
+      justify-content: space-between;
+      align-items: center;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav a {
+      color: rgb(251, 243, 243);
+      text-decoration: none;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #333;
+      top: 100%;
+      left: 0;
+      list-style: none;
+      padding: 10px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content li a {
+      color: #fffdfd;
+      display: block;
+      padding: 5px 10px;
+      text-decoration: none;
     }
 
     .profile-header {
@@ -175,6 +226,23 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Skill2Skill</div>
+    <nav>
+      <ul>
+        <li><a href="../Home/home.html">Home</a></li>
+        <li><a href="../Search for Skill/search.html">Explore</a></li>
+        <li class="dropdown">
+          <a href="#">Registration</a>
+          <ul class="dropdown-content">
+            <li><a href="../../Registration/public/images/login.html">Login</a></li>
+            <li><a href="../../Registration/public/images/register.html">Signup</a></li>
+          </ul>
+        </li>
+        <li><a href="../Profile/profile_page.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Profile Section -->
   <div class="profile-header">
@@ -286,6 +354,100 @@
       }
     });
   </script>
+
+  <!-- Profiles Section -->
+<div class="profiles-section">
+  <h2>Explore Skill Matches</h2>
+  <div class="profiles-grid" id="profilesContainer"></div>
+</div>
+
+<script>
+  const randomNames = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ian", "Jack"];
+  const profileImages = [
+    "https://www.w3schools.com/w3images/avatar2.png",
+    "https://www.w3schools.com/w3images/avatar5.png",
+    "https://www.w3schools.com/w3images/avatar6.png"
+  ];
+
+  function getRandomSkills(array, count) {
+    let shuffled = array.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  }
+
+  function generateProfiles() {
+    const container = document.getElementById('profilesContainer');
+    container.innerHTML = '';
+
+    for (let i = 0; i < 4; i++) {
+      let name = randomNames[Math.floor(Math.random() * randomNames.length)];
+      let image = profileImages[Math.floor(Math.random() * profileImages.length)];
+      let offeredSkills = getRandomSkills(skills, 3);
+      let lookingForSkills = getRandomSkills(skills, 3);
+
+      let profileCard = document.createElement('div');
+      profileCard.className = 'profile-card';
+      profileCard.innerHTML = `
+        <div class="profile-info">
+          <img src="${image}" alt="Profile Image">
+          <h3>${name}</h3>
+        </div>
+        <div class="skills-group">
+          <strong>Skills Offered:</strong>
+          <p>${offeredSkills.join(", ")}</p>
+          <strong>Looking For:</strong>
+          <p>${lookingForSkills.join(", ")}</p>
+        </div>
+      `;
+      container.appendChild(profileCard);
+    }
+  }
+
+  // Call function to generate profiles on page load
+  generateProfiles();
+</script>
+
+<style>
+  .profiles-section {
+    width: 90%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .profiles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .profile-card {
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    width: 22%;
+    min-height: 200px;
+    text-align: center;
+  }
+
+  .profile-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .skills-group p {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  @media screen and (max-width: 900px) {
+    .profile-card {
+      width: 80%;
+    }
+  }
+</style>
 
 </body>
 </html>
