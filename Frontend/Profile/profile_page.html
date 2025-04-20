@@ -46,7 +46,7 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      background: white;
+      background: #333;
       top: 100%;
       left: 0;
       list-style: none;
@@ -58,7 +58,8 @@
     }
 
     .dropdown-content li a {
-      color: #333;
+      color: #faf7f7;
+      background: #333;
       display: block;
       padding: 5px 10px;
       text-decoration: none;
@@ -78,7 +79,7 @@
     .tab {
       padding: 10px 20px;
       border: none;
-      background: #0c0c0c;
+      background: #131313;
       cursor: pointer;
       border-radius: 5px;
     }
@@ -188,7 +189,7 @@
       gap: 15px;
     }
 
-    .social-box, .add-social-btn, .add-skill-btn {
+    .social-box, #socials button, #skills button {
       background: #2a2a2a;
       padding: 12px 15px;
       border-radius: 8px;
@@ -403,7 +404,6 @@
     .logout-btn:hover {
       background: #c62828;
     }
-
 </style>
 <body>
   <header>
@@ -411,12 +411,12 @@
     <nav>
       <ul>
         <li><a href="../Home/home.html">Home</a></li>
-        <li><a href="#">Explore</a></li>
+        <li><a href="../Search for Skill/search.html">Explore</a></li>
         <li class="dropdown">
           <a href="#">Registration</a>
           <ul class="dropdown-content">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Signup</a></li>
+            <li><a href="../../Registration/public/images/login.html">Login</a></li>
+            <li><a href="../../Registration/public/images/register.html">Signup</a></li>
           </ul>
         </li>
         <li><a href="#">Profile</a></li>
@@ -426,10 +426,10 @@
 
   <main class="profile-container">
     <div class="tab-buttons">
-      <button class="tab active" onclick="showTab('public')">Public</button>
-      <button class="tab" onclick="showTab('update')">Update</button>
-      <button class="tab" onclick="showTab('analytics')">Analytics</button>
-      <button class="tab" onclick="showTab('settings')">Settings</button>
+      <button class="tab active" onclick="showTab('public')" style="background-color: #007bff;">Public</button>
+      <button class="tab" onclick="showTab('update')" style="background-color: #007bff;">Update</button>
+      <button class="tab" onclick="showTab('analytics')" style="background-color: #007bff;">Analytics</button>
+      <button class="tab" onclick="showTab('settings')" style="background-color: #007bff;">Settings</button>
     </div>
   
     <div class="tab-content" id="public">
@@ -462,37 +462,37 @@
   
     loadPublicSections();
   </script>
-  
-  <!-- Update Section -->
-  <div class="tab-content hidden" id="update">
-      <div id="update-profile-container"></div>
-      <div id="update-socials-container"></div>
-      <div id="update-skills-container"></div>
-      <button class="update-btn" onclick="loadUpdateSections()">Save Changes</button>
+
+   <!-- Update Section -->
+   <div class="tab-content hidden" id="update">
+    <div id="update-profile-container"></div>
+    <div id="update-socials-container"></div>
+    <div id="update-skills-container"></div>
+    <button class="update-btn" onclick="loadUpdateSections()">Save Changes</button>
   </div>  
 
-    <script>
-      const updateSections = {
-        'update-profile-container': 'update/profile.html',
-        'update-socials-container': 'update/socials.html',
-        'update-skills-container': 'update/skills.html'
-      };
-    
-      function loadUpdateSections() {
-        for (const [containerId, filePath] of Object.entries(updateSections)) {
-          fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById(containerId).innerHTML = data;
-            })
-            .catch(error => console.error(`Error loading ${filePath}:`, error));
-        }
+  <script>
+    const updateSections = {
+      'update-profile-container': 'update/profile.html',
+      'update-socials-container': 'update/socials.html',
+      'update-skills-container': 'update/skills.html'
+    };
+  
+    function loadUpdateSections() {
+      for (const [containerId, filePath] of Object.entries(updateSections)) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(containerId).innerHTML = data;
+          })
+          .catch(error => console.error(`Error loading ${filePath}:`, error));
       }
-    
-      loadUpdateSections();
-    </script>
-    
-    <!-- Analytics Section -->
+    }
+  
+    loadUpdateSections();
+  </script>
+  
+  <!-- Analytics Section -->
   <div class="tab-content hidden" id="analytics">
   <h2 style="color: white; font-size: 24px; margin-bottom: 20px;">Analytics Dashboard</h2>
 
@@ -685,7 +685,7 @@
       </div>
     
       <div class="logout-section">
-        <button class="logout-btn">Logout</button>
+        <a href="../../Registration/public/images/login.html"><button class="logout-btn">Logout</button></a>
       </div>
     </div>    
   </div>
@@ -703,6 +703,68 @@
         document.getElementById(tabId).classList.remove('hidden');
         event.target.classList.add('active');
     }
+
+    function addSocial() {
+    const social = prompt("Enter new social (e.g., Twitter: @handle)");
+    if (social) {
+      const newBox = document.createElement("div");
+      newBox.innerText = social;
+      newBox.className = "social-box";
+      document.getElementById("socials").insertBefore(newBox, document.getElementById("socials").lastElementChild);
+    }
+  }
+
+  function addSkill() {
+    const skill = prompt("Enter new skill:");
+    if (skill) {
+      const newBox = document.createElement("div");
+      newBox.innerText = skill;
+      newBox.className = "skil-box";
+      document.getElementById("skills").insertBefore(newBox, document.getElementById("skills").lastElementChild);
+    }
+  }
+
+  function saveChanges() {
+    const username = document.getElementById("username").value;
+    const displayName = document.getElementById("displayName").value;
+
+    const socials = Array.from(document.querySelectorAll("#socials .tag-box")).map(box => box.innerText);
+    const skills = Array.from(document.querySelectorAll("#skills .tag-box")).map(box => box.innerText);
+
+    const data = {
+      username,
+      displayName,
+      socials,
+      skills
+    };
+
+    localStorage.setItem("userData", JSON.stringify(data));
+    alert("Changes Saved!");
+  }
+
+  window.onload = function() {
+    const data = JSON.parse(localStorage.getItem("userData"));
+    if (data) {
+      document.getElementById("username").value = data.username;
+      document.getElementById("displayName").value = data.displayName;
+
+      const socialsContainer = document.getElementById("socials");
+      data.socials.forEach(social => {
+        const div = document.createElement("div");
+        div.innerText = social;
+        div.className = "social-box";
+        socialsContainer.insertBefore(div, socialsContainer.lastElementChild);
+      });
+
+      const skillsContainer = document.getElementById("skills");
+      data.skills.forEach(skill => {
+        const div = document.createElement("div");
+        div.innerText = skill;
+        div.className = "tag-box";
+        skillsContainer.insertBefore(div, skillsContainer.lastElementChild);
+      });
+    }
+  };
   </script>
 </body>
 </html>
